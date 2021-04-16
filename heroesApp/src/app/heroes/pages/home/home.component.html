@@ -1,0 +1,43 @@
+<!--Menu hamburguesa para navegación-->
+<mat-sidenav-container fullscreen>
+    <mat-sidenav #sidenav mode="push">
+        <!--Acción para cerrar el menu-->
+        <mat-toolbar color="primary">
+            <span>Menu</span>
+            <button mat-icon-button (click)="sidenav.toggle()"> 
+                <mat-icon>highlight_off</mat-icon>
+            </button>
+        </mat-toolbar>
+        <!--Lista de opciónes de navegación del menú una vez activado-->
+        <mat-nav-list>
+            <a routerLink="./list" mat-list-item (click)="sidenav.toggle()">
+                <mat-icon>label</mat-icon>
+                <span>Heroes List</span>
+            </a>
+            <a routerLink="./add" mat-list-item (click)="sidenav.toggle()">
+                <mat-icon>add</mat-icon>
+                <span>Add Heroe</span>
+            </a>
+            <a routerLink="./search" mat-list-item (click)="sidenav.toggle()">
+                <mat-icon>search</mat-icon>
+                <span>Search Heroe</span>
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-toolbar>
+        <!--Botón para desplegar el menú-->
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span class="spacer"></span>
+        <span>Welcome {{auth.name}} </span>
+        <button mat-button (click)="logout()">
+            Logout
+        </button>
+    </mat-toolbar>
+
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+</mat-sidenav-container>
+<!--<p>Home works!</p>-->
